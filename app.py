@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -87,14 +86,14 @@ if uploaded_file is not None:
                             """)
 
                     else:
-                        st.error("❌ Jumlah data terlalu sedikit untuk evaluasi (minimal 7 bulan data).")
+                        st.error("❌ Jumlah data terlalu sedikit untuk evaluasi (minimal 6 bulan data).")
                         forecast = pd.Series()
 
-                    # Fit ulang ke seluruh data untuk prediksi 7 bulan ke depan
+                    # Fit ulang ke seluruh data untuk prediksi 6 bulan ke depan
                     final_model = ARIMA(df['spanduk'], order=(p, d, q)).fit()
-                    pred_next = final_model.forecast(steps=7)
+                    pred_next = final_model.forecast(steps=6)
 
-                    st.subheader("📅 Hasil Prediksi 7 Bulan Kedepan")
+                    st.subheader("📅 Hasil Prediksi 6 Bulan Kedepan")
                     st.write(pred_next)
 
                     fig, ax = plt.subplots()
