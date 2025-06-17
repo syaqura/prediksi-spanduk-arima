@@ -94,7 +94,7 @@ if uploaded_file is not None:
                     pred_next = final_model.forecast(steps=6)
 
                     st.subheader("📅 Hasil Prediksi 6 Bulan Kedepan")
-                    st.write(pred_next)
+                    st.write(pred_next.round(2))
 
                     fig, ax = plt.subplots()
                     df['spanduk'].plot(ax=ax, label='Data Historis')
